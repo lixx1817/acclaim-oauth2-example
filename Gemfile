@@ -23,6 +23,10 @@ end
 
 group :production do
   gem 'pg'
+  gem 'heroku_rails_deflate'
+  gem 'heroku_san'
+  gem 'rack-timeout'
+  gem 'rails_12factor'
 end
 
 # Use SCSS for stylesheets
