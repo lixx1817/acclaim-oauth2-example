@@ -108,3 +108,19 @@ p {
   margin-left: 50%;
   margin-right: 50%;
 }
+
+.span3 {
+  display:table-cell;
+  vertical-align: middle;
+    padding: 30px;
+    height: 270px;
+    border: 10px solid #FFFFFF;
+    background-color: #eaeaea;
+
+
+}
+.break_word{
+  font-size:70%;
+  max-height: 90px;
+  overflow-y:scroll;
+}
