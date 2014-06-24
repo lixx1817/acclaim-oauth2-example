@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<component name="dataSourceStorage">
-  <data-source source="LOCAL" name="Rails oAuth_Client: development" uuid="ac59a180-9dde-459a-9d14-abd23b545c22">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-  <data-source source="LOCAL" name="Rails oAuth_Client: test" uuid="0b837e97-b7ae-43a0-bb8a-fa38d5b91cdb">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
-  </data-source>
-</component>
