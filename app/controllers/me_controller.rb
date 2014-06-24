@@ -1,5 +1,6 @@
 class MeController < ApplicationController
   include OAuth2Client
+  rescue_from OAuth2::Error, with: :sign_out_user
 
   def show
     @user = current_user
@@ -22,5 +23,12 @@ class MeController < ApplicationController
     access_token = return_access_token
     @response = JSON.parse(access_token.put("/oauth/v1/users/self/badges/#{@id}/reject").body)
     redirect_to me_path @user
+  end
+
+  protected
+
+  def sign_out_user
+    sign_out
+    redirect_to root_path
   end
 end
