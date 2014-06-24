@@ -59,10 +59,22 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.33.0)
     execjs (2.1.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     hashie (2.1.1)
+    heroku-api (0.3.18)
+      excon (~> 0.27)
+      multi_json (~> 1.8)
+    heroku_rails_deflate (1.0.3)
+      actionpack (>= 3.2.13)
+      activesupport (>= 3.2.13)
+      rack (>= 1.4.5)
+    heroku_san (4.3.2)
+      heroku-api (>= 0.1.2)
+      json
+      rake
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (2.0.7)
@@ -123,6 +135,7 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-timeout (0.0.4)
     rails (4.1.1)
       actionmailer (= 4.1.1)
       actionpack (= 4.1.1)
@@ -133,6 +146,11 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.1.1)
       sprockets-rails (~> 2.0)
+    rails_12factor (0.0.2)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.1)
+    rails_stdout_logging (0.0.2)
     railties (4.1.1)
       actionpack (= 4.1.1)
       activesupport (= 4.1.1)
@@ -186,6 +204,8 @@ DEPENDENCIES
   choices
   coffee-rails (~> 4.0.0)
   devise
+  heroku_rails_deflate
+  heroku_san
   jbuilder (~> 2.0)
   jquery-rails
   oauth2
@@ -197,7 +217,9 @@ DEPENDENCIES
   pry-debugger
   pry-remote
   pry-stack_explorer
+  rack-timeout
   rails (= 4.1.1)
+  rails_12factor
   sass-rails
   sdoc (~> 0.4.0)
   spring
