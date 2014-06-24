@@ -16,7 +16,7 @@
               <b>Email:</b> <%= @user_info['data']['email'] %></b><br/>
 
               <br>
-              <%= link_to "See my public profile", 'https://jefferson-staging.herokuapp.com/users/' + @user_info['data']['id'] %>
+              <%= link_to "See my public profile", 'https://jefferson-staging.herokuapp.com/user/' + @user_info['data']['vanity_slug'] %>
             </td>
 
           </tr>
