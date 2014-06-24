@@ -1,0 +1,14 @@
+defaults: &defaults
+  application_providers:
+    acclaim:
+      client_id: '<%= ENV['ACCLAIM_ID'] %>'
+      client_secret: '<%= ENV['ACCLAIM_SECRET'] %>'
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

@@ -1,0 +1,89 @@
+<div>
+    <div class="highlight">
+      <h3 id="overview-container">User Details</h3>
+      <pre>
+        <table>
+          <tr>
+            <td id="table_image">
+              <% if @user_info['data']['photo_url'] %>
+                  <img id="image" src="<%= @user_info['data']['photo_url'] %>" width="75" height="75"/>
+              <% end %>
+            </td>
+
+            <td>
+              <b>Name:</b> <%= @user_info['data']['first_name'] %> <%= @user_info['data']['last_name'] %><br/>
+              <b>User ID:</b> <%= @user_info['data']['id'] %><br/>
+              <b>Email:</b> <%= @user_info['data']['email'] %></b><br/>
+
+              <br>
+              <%= link_to "See my public profile", 'https://jefferson-staging.herokuapp.com/users/' + @user_info['data']['id'] %>
+            </td>
+
+          </tr>
+
+        </table>
+
+
+      </pre>
+   </div>
+</div>
+
+<%
+   # logger.debug "debug badges data"
+   # logger.debug @badges['data'].to_yaml
+%>
+
+<br>
+<h3 id="overview-container">Accepted Badges</h3>
+<% badge_counter=0 %>
+<div class="container">
+  <% @badges['data'].each do |badge| %>
+      <% unless badge['state'] == 'pending' %>
+
+          <% if badge_counter%4==0 %>
+              <div class="row">
+          <%end%>
+
+          <div class="span4 col-md-3 col-xs-6">
+            <div class="pull-right">
+                <%= badge['badge_template']['name'] %>
+                <br>
+            </div>
+            <div class="pull-left">
+                <img src="<%= badge['badge_template']['image_url'] %>" height = "50" width ="50"/> <br>
+            </div>
+            </div>
+          <%badge_counter+=1%>
+
+          <% if badge_counter%4==0 %>
+              </div>
+          <%end%>
+      <% end %>
+  <% end %>
+</div>
+
+<br>
+<h3 id="overview-container">Pending Badges</h3>
+<% badge_counter=0 %>
+<div class="container">
+  <% @badges['data'].each do |badge| %>
+       <% unless badge['state'] == 'accepted' %>
+
+          <% if badge_counter%4==0 %>
+              <div class="row">
+          <%end%>
+
+          <div class="span4 col-md-3 col-xs-6">
+            <%= badge['badge_template']['name'] %> <br>
+            <img src="<%= badge['badge_template']['image_url'] %>" height = "50" width ="50"/> <br>
+            <%= link_to "Accept", accept_me_path(badge['id']) %> or <%= link_to "Reject", reject_me_path(badge['id']) %>
+          </div>
+
+          <%badge_counter+=1%>
+
+          <% if badge_counter%4==0 %>
+              </div>
+          <%end%>
+      <% end %>
+  <% end %>
+</div>
